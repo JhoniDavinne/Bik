@@ -19,6 +19,8 @@ a {
 
 .header {
   display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
   justify-content: space-between;
   align-items: center;
   box-sizing: border-box;
@@ -30,12 +32,60 @@ a {
 
 .header-menu {
   display: flex;
+  flex-wrap: wrap;
   gap: 40px;
 }
 
 .header-menu a {
-    color: #fff;
-    padding: 16px 0px;
-    display: inline-block;
-    font-size: 1.125rem;
+  color: #fff;
+  padding: 16px 0px;
+  display: inline-block;
+  font-size: 1.125rem;
+  position: relative;
+}
+
+.header-menu a::after{
+    content: "";
+    display: block;
+    height: .125rem;
+    width: 0px;
+    background: #fff;
+    margin-top: 4px;
+    transition: 0.3s;
+    position: absolute;
+}
+
+.header-menu a:hover:after{
+    width: 100%;
+}
+
+@media (max-width: 800px) {
+  .header-menu {
+    gap: 20px;
+  }
+
+  .header-menu a {
+    background: #111;
+    padding: 12px 16px;
+    border-radius: 4px;
+  }
+
+  .header-menu a:hover{
+    background-color: #2e2e2e;
+  }
+
+  .header-menu a::after{
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .header-menu {
+    gap: 12px;
+  }
+
+  .header-menu a {
+    padding: 8px 16px;
+    font-size: .875rem;
+  }
 }
